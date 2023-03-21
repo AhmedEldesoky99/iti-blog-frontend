@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar {
+  position: fixed;
+  z-index: 1000;
+  box-shadow: 1rem 1rem 3rem rgba($color: #000000, $alpha: 0.3);
+}
+
+.cust-avatar {
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+}
