@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { Input } from "../Inputs/inputs";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-export const Form = ({ inputs, schema, children }) => {
+export const Form = ({ inputs, schema, children, onSubmit }) => {
   const { register, handleSubmit, watch, formState } = useForm({
     resolver: yupResolver(schema),
   });
@@ -24,7 +24,8 @@ export const Form = ({ inputs, schema, children }) => {
   };
 
   const submit = (data) => {
-    console.log("data", data);
+    console.log("inside form", data);
+    onSubmit(data);
   };
 
   return (

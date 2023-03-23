@@ -1,0 +1,23 @@
+.modal {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(0.2rem);
+    width: 100vw;
+    height: 100vh;
+  }
+  &__box {
+    width: 60%;
+    // height: 70%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 1rem;
+  }
+}

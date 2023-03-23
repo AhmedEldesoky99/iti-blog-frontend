@@ -1,10 +1,17 @@
 //assets
 import { useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import User from "../../assets/images/user.png";
 
-export const Navbar = () => {
+export const Navbar = ({ user }) => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    navigate("/sign-in");
+    localStorage.removeItem("jwt");
+  };
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-gray-200">
       <div className="container">
         <div className="flex-1">
           <a className="btn btn-ghost normal-case text-xl">Blog</a>
@@ -16,20 +23,20 @@ export const Navbar = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img src={User} />
+                <img src={user?.photo[0].url ?? User} />
               </div>
             </label>
             <ul
               tabIndex={0}
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
-              <li>
+              <li onClick={() => navigate("/profile/" + user._id, user)}>
                 <a className="justify-between">Profile</a>
               </li>
-              <li>
+              {/* <li>
                 <a>Settings</a>
-              </li>
-              <li>
+              </li> */}
+              <li onClick={logout}>
                 <a>Logout</a>
               </li>
             </ul>

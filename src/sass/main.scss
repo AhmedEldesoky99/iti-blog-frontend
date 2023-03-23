@@ -1,16 +1,23 @@
+//abstract
 @import "./abstract/_variables.scss";
 @import "./abstract/_mixins.scss";
 @import "./abstract/_function.scss";
 
+//base
 @import "./base/reset";
 @import "./base/animation";
 @import "./base/typography";
 @import "./base/utilities";
 
-@import "./layout/container";
-
+//vendors
 @import "./vendor/_daisy.scss";
 
-@import "../container/Home/header/header";
+//components
+@import "../components/shared/Modal/_modal.scss";
 
+//containers
+@import "../container/Home/header/header";
+@import "./layout/container";
+
+//pages
 @import "./page/_home.scss";
