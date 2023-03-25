@@ -36,10 +36,6 @@ export const router = createBrowserRouter([
   },
   {
     path: "post/:id",
-    element: (
-      <Protected>
-        <Post />
-      </Protected>
-    ),
+    element: <Post />,
   },
 ]);
