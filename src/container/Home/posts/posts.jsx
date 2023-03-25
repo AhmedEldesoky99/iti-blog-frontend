@@ -79,7 +79,7 @@ export const Posts = () => {
               title={item.title}
               content={item.content.slice(0, 110) + "..."}
               imagePost={item.photo[0]?.url}
-              imageUser={item.user.photo[0]?.url}
+              imageUser={item.user?.photo[0]?.url}
               date={item?.updatedAt}
               user={item?.user}
             />
