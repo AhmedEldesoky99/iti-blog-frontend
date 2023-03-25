@@ -11,7 +11,7 @@ import ImageUploader from "../../../components/shared/Inputs/upload-imge";
 import { alertMsg } from "../../../utils/alert";
 import axios from "axios";
 import { addPost } from "../../../services/posts";
-import { Pagination } from "../../../components/shared/pagination/pagination";
+// import { Pagination } from "../../../components/shared/pagination/pagination";
 
 const getPosts = (limit) => {
   return request({
