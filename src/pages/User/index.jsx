@@ -92,7 +92,7 @@ const User = () => {
       </Modal>
 
       {/* modal to change photo */}
-      <Modal isOpen={modals.photo} toggleModal={() => handleSubmit("photo")}>
+      <Modal isOpen={modals.photo} toggleModal={() => modalsToggler("photo")}>
         <h2 className="text-xl text-center font-bold pb-6 capitalize">
           change Photo
         </h2>

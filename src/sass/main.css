@@ -28,6 +28,10 @@
   right: 1rem;
 }
 
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .modal__overlay {
   position: fixed;
   top: 0;
@@ -40,7 +44,7 @@
   height: 100vh;
 }
 .modal__box {
-  overflow-y: scroll;
+  overflow-y: auto;
   width: 60%;
   max-height: 90%;
   position: absolute;
@@ -51,6 +55,11 @@
   border-radius: 1rem;
   padding: 1rem;
 }
+@media (max-width: 991px) {
+  .modal__box {
+    width: 80%;
+  }
+}
 
 .header-img {
   background-image: url("../assets/images/Background - Compressed.webp");
@@ -59,6 +68,12 @@
 .container {
   max-width: 82rem;
   margin: 0 auto;
+}
+
+@media (max-width: 600px) {
+  .img-uploader {
+    flex-direction: column;
+  }
 }
 
 .user__cover {

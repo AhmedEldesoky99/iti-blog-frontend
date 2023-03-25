@@ -67,7 +67,7 @@ export const Posts = () => {
 
       <h2 className="text-6xl py-10 text-center">Latest post</h2>
       <div className="py-10 flex justify-center">
-        <button className="btn" onClick={() => toggleCreate(true)}>
+        <button className="btn btn-primary" onClick={() => toggleCreate(true)}>
           create post
         </button>
       </div>

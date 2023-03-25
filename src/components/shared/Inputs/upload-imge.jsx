@@ -16,7 +16,7 @@ const ImageUploader = ({ urlImg, setFile }) => {
   };
   const showImg = url || img;
   return (
-    <div className="m-auto flex justify-center gap-4 items-center">
+    <div className="img-uploader m-auto flex justify-center gap-4 items-center">
       <div className="avatar block my-4">
         <div className="w-60  rounded overflow-hidden">
           {showImg && <img src={img ? img : url} />}

@@ -10,7 +10,7 @@
     height: 100vh;
   }
   &__box {
-    overflow-y: scroll;
+    overflow-y: auto;
     width: 60%;
     max-height: 90%;
     position: absolute;
@@ -20,5 +20,8 @@
     background-color: #fff;
     border-radius: 1rem;
     padding: 1rem;
+    @media (max-width: "991px") {
+      width: 80%;
+    }
   }
 }

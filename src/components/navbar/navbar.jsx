@@ -11,15 +11,21 @@ export const Navbar = ({ user }) => {
     localStorage.removeItem("jwt");
   };
   return (
-    <div className="navbar bg-gray-200">
+    <div className="navbar bg-primary">
       <div className="container">
-        <Link to="/" className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">Blog</a>
-        </Link>
+        <a
+          href="https://ahmed-eldesoky.vercel.app/"
+          target="_blank"
+          className="flex-1 "
+        >
+          <span className="btn btn-ghost normal-case text-xl text-cyan-50">
+            Ahmed Eldesoky
+          </span>
+        </a>
         <div className="flex gap-2">
-          <div className="form-control">
+          {/* <div className="form-control">
             <DarkMode />
-          </div>
+          </div> */}
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
@@ -30,7 +36,7 @@ export const Navbar = ({ user }) => {
               tabIndex={0}
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
-              <li onClick={() => navigate("/profile/" + user._id, user)}>
+              <li onClick={() => navigate("/user/" + user._id, user)}>
                 <a className="justify-between">Profile</a>
               </li>
               {/* <li>
@@ -50,9 +56,11 @@ export const Navbar = ({ user }) => {
 const DarkMode = () => {
   const [dark, setDark] = useState(localStorage.getItem("dark"));
   const darkModeHandler = () => {
-    const dark = localStorage.getItem("dark");
-    if (!dark) localStorage.setItem("dark", true);
-    else localStorage.setItem("dark", false);
+    if (dark === "false") {
+      localStorage.setItem("dark", true);
+    } else {
+      localStorage.setItem("dark", false);
+    }
   };
   return (
     <label className="swap swap-rotate" onClick={darkModeHandler}>
