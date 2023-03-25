@@ -1,0 +1,14 @@
+.user {
+  &__cover {
+    height: 30vh;
+    width: 100vw;
+  }
+  &__photo {
+    @media (max-width: "991px") {
+      width: 50%;
+    }
+    @media (max-width: "400px") {
+      width: 100%;
+    }
+  }
+}

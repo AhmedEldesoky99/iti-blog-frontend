@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { Icon } from "../../../Svg/svg";
 
-const ImageUploader = ({ url, setFile }) => {
+const ImageUploader = ({ urlImg, setFile }) => {
   const [img, setImg] = useState("");
-
+  const [url, setUrl] = useState(urlImg);
   //handle image
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setFile(file);
     const reader = new FileReader();
     if (reader && file) reader.readAsDataURL(file);
-    // console.log(reader);
     reader.onloadend = () => {
       setImg(reader.result);
-      console.log(reader.result);
     };
   };
   const showImg = url || img;
@@ -21,7 +19,7 @@ const ImageUploader = ({ url, setFile }) => {
     <div className="m-auto flex justify-center gap-4 items-center">
       <div className="avatar block my-4">
         <div className="w-60  rounded overflow-hidden">
-          {showImg && <img src={url ?? img} />}
+          {showImg && <img src={img ? img : url} />}
           {!showImg && (
             <div className="abs bg-slate-300 w-full h-full rounded ">
               <div className="abs">
@@ -44,7 +42,13 @@ const ImageUploader = ({ url, setFile }) => {
             Upload
           </label>
         </button>
-        <button className="btn btn-error" onClick={() => setImg("")}>
+        <button
+          className="btn btn-error"
+          onClick={() => {
+            setImg("");
+            setUrl("");
+          }}
+        >
           Delete
         </button>
       </div>

@@ -7,11 +7,16 @@ import SignIn from "./pages/Sign-in";
 import SignUp from "./pages/Sign-up";
 import Post from "./pages/Post";
 import User from "./pages/User";
+import { Protected } from "./components/shared/ProtectedRoutes/protected";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: (
+      <Protected>
+        <Home />
+      </Protected>
+    ),
   },
   {
     path: "sign-in",
@@ -23,10 +28,18 @@ export const router = createBrowserRouter([
   },
   {
     path: "user/:id",
-    element: <User />,
+    element: (
+      <Protected>
+        <User />
+      </Protected>
+    ),
   },
   {
     path: "post/:id",
-    element: <Post />,
+    element: (
+      <Protected>
+        <Post />
+      </Protected>
+    ),
   },
 ]);

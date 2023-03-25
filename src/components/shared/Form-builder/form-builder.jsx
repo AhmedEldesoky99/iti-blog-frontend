@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import { Input } from "../Inputs/inputs";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
 
-export const Form = ({ inputs, schema, children, onSubmit }) => {
+export const Form = ({ data, inputs, schema, children, onSubmit }) => {
+  const [values, setValues] = useState(data ?? {});
+
   const { register, handleSubmit, watch, formState } = useForm({
     resolver: yupResolver(schema),
   });
@@ -16,6 +19,7 @@ export const Form = ({ inputs, schema, children, onSubmit }) => {
             label={input.label}
             type={input.type}
             name={input.name}
+            value={values[input?.name]}
             register={register(input.name)}
             error={errors[input.name]?.message}
           />
@@ -24,12 +28,15 @@ export const Form = ({ inputs, schema, children, onSubmit }) => {
   };
 
   const submit = (data) => {
-    console.log("inside form", data);
     onSubmit(data);
   };
 
+  const onChange = ({ target }) => {
+    setValues({ ...values, [target.name]: target.value });
+  };
+
   return (
-    <form onSubmit={handleSubmit(submit)}>
+    <form onSubmit={handleSubmit(submit)} onChange={onChange}>
       {inputs.map((input) => renderInputs(input, formState.errors))}
       {children}
       <div className="form-control mt-6">

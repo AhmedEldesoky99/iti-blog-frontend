@@ -1,6 +1,6 @@
 //assets
-import { useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import User from "../../assets/images/user.png";
 
 export const Navbar = ({ user }) => {
@@ -13,9 +13,9 @@ export const Navbar = ({ user }) => {
   return (
     <div className="navbar bg-gray-200">
       <div className="container">
-        <div className="flex-1">
+        <Link to="/" className="flex-1">
           <a className="btn btn-ghost normal-case text-xl">Blog</a>
-        </div>
+        </Link>
         <div className="flex gap-2">
           <div className="form-control">
             <DarkMode />

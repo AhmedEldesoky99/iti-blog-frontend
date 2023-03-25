@@ -5,14 +5,15 @@ export const Input = ({
   type = "text",
   register,
   error,
+  value,
 }) => {
-  console.log("error", error);
   return (
     <div className="form-control">
       <label className="label">
         <span className="label-text">{label}</span>
       </label>
       <input
+        value={value}
         name={name}
         type={type}
         placeholder={placeholder}

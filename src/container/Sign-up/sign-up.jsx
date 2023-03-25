@@ -3,16 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { Form } from "../../components/shared/Form-builder/form-builder";
 import { Spinner } from "../../components/shared/Spinner";
 import { request } from "../../services/axios-utils";
+import { signUp } from "../../services/user";
 import { alertMsg } from "../../utils/alert";
 import { inputs, registerSchema } from "./constant";
-
-const signUp = (data) => {
-  return request({
-    url: "/v1/users/sign-up",
-    method: "POST",
-    data,
-  });
-};
 
 export const SignUpSec = () => {
   const navigate = useNavigate();

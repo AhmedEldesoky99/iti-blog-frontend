@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 //style
 import "react-toastify/dist/ReactToastify.css";
 
+//react query
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 

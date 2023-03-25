@@ -11,6 +11,7 @@ import { createPost, inputs } from "./constant";
 import ImageUploader from "../../../components/shared/Inputs/upload-imge";
 import { alertMsg } from "../../../utils/alert";
 import axios from "axios";
+import { addPost } from "../../../services/posts";
 
 const getPosts = (limit) => {
   return request({
@@ -19,20 +20,6 @@ const getPosts = (limit) => {
   });
 };
 
-const addPost = (data) => {
-  return axios({
-    url: `${baseURL}/v1/post`,
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      "content-type": "multipart/form-data",
-      Accept: "application/json",
-    },
-    data,
-  })
-    .then((res) => res)
-    .catch((err) => err);
-};
 export const Posts = () => {
   const [fetchPosts, setFetchPosts] = useState(true);
   const query = useQuery("posts", getPosts, {
@@ -88,13 +75,13 @@ export const Posts = () => {
         {cards?.map((item) => (
           <div className="my-5 m-auto " key={item._id}>
             <Card
-              link={"/posts/" + item._id}
+              link={"/post/" + item._id}
               title={item.title}
               content={item.content.slice(0, 110) + "..."}
               imagePost={item.photo[0]?.url}
               imageUser={item.user.photo[0]?.url}
-              date={item.updatedAt}
-              user={item.user}
+              date={item?.updatedAt}
+              user={item?.user}
             />
           </div>
         ))}

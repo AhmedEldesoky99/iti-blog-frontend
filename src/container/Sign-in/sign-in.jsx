@@ -2,24 +2,16 @@ import { useMutation } from "react-query";
 import { Link, useNavigate } from "react-router-dom";
 import { Form } from "../../components/shared/Form-builder/form-builder";
 import { Spinner } from "../../components/shared/Spinner";
-import { request } from "../../services/axios-utils";
+import { signIn } from "../../services/user";
 import { alertMsg } from "../../utils/alert";
 import { inputs, loginSchema } from "./constant";
-
-const signIn = (data) => {
-  return request({
-    url: "/v1/users/sign-in",
-    method: "POST",
-    data,
-  });
-};
 
 export const SignInSec = () => {
   const navigate = useNavigate();
 
   const mutation = useMutation(signIn, {
     onSuccess: (res) => {
-      if (res.data.success) {
+      if (res?.data?.success) {
         localStorage.setItem("userID", res.data.data.user._id);
         localStorage.setItem("jwt", res.data.data.access_token);
         navigate("/");
@@ -27,8 +19,9 @@ export const SignInSec = () => {
           res.data ? "welcome back to our blog" : undefined,
           res.data.success
         );
+      } else {
+        alertMsg(res?.response?.data?.message, res?.response?.data?.success);
       }
-      alertMsg(res?.response?.data?.message, res?.response?.data?.success);
     },
   });
 

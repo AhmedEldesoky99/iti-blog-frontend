@@ -24,3 +24,11 @@ export const request = ({ ...options }) => {
 
   return client(options).then(onSuccess).catch(onError);
 };
+
+export const headersFormData = () => {
+  return {
+    Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    "content-type": "multipart/form-data",
+    Accept: "application/json",
+  };
+};

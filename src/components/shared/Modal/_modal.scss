@@ -10,8 +10,9 @@
     height: 100vh;
   }
   &__box {
+    overflow-y: scroll;
     width: 60%;
-    // height: 70%;
+    max-height: 90%;
     position: absolute;
     left: 50%;
     top: 50%;

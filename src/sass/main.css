@@ -9,6 +9,10 @@
   z-index: 10000;
 }
 
+.center-div {
+  margin: 0 auto;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -36,7 +40,9 @@
   height: 100vh;
 }
 .modal__box {
+  overflow-y: scroll;
   width: 60%;
+  max-height: 90%;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -51,6 +57,21 @@
 }
 
 .container {
-  max-width: 113rem;
+  max-width: 82rem;
   margin: 0 auto;
+}
+
+.user__cover {
+  height: 30vh;
+  width: 100vw;
+}
+@media (max-width: 991px) {
+  .user__photo {
+    width: 50%;
+  }
+}
+@media (max-width: 400px) {
+  .user__photo {
+    width: 100%;
+  }
 }/*# sourceMappingURL=main.css.map */
