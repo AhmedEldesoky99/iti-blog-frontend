@@ -1,7 +1,6 @@
 import { baseURL, request } from "../../../services/axios-utils";
 import { useMutation, useQuery } from "react-query";
 //cust
-import { Pagination } from "../../../components/shared/pagination/pagination";
 import { Card } from "../../../components/shared/Card/card";
 import { Spinner } from "../../../components/shared/Spinner";
 import { useState } from "react";
@@ -12,6 +11,7 @@ import ImageUploader from "../../../components/shared/Inputs/upload-imge";
 import { alertMsg } from "../../../utils/alert";
 import axios from "axios";
 import { addPost } from "../../../services/posts";
+import { Pagination } from "../../../components/shared/pagination/pagination";
 
 const getPosts = (limit) => {
   return request({
