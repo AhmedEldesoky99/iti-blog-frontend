@@ -1,18 +1,16 @@
 import { useQuery } from "react-query";
+
+//custom
 import { Footer } from "../../components/footer/footer";
 import { Navbar } from "../../components/navbar/navbar";
 import { Header } from "../../container/Home/header/header";
 import { Posts } from "../../container/Home/posts/posts";
-import { request } from "../../services/axios-utils";
+import { getUserByID } from "../../services/user";
 import { handleRes } from "../../utils/handle-res";
-
-const getUserDate = (id) => {
-  return request({ url: `/v1/user/profile/${id}`, method: "GET" });
-};
 
 const Home = () => {
   const userID = localStorage.getItem("userID");
-  const userQuery = useQuery(["user-login", userID], () => getUserDate(userID));
+  const userQuery = useQuery(["user-login", userID], () => getUserByID(userID));
 
   const user = handleRes(userQuery);
   const username = handleRes(userQuery)?.username;

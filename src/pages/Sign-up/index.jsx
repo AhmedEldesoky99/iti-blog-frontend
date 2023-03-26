@@ -1,11 +1,7 @@
 import { SignUpSec } from "../../container/Sign-up/sign-up";
 
 const SignUp = () => {
-  return (
-    <div>
-      <SignUpSec />
-    </div>
-  );
+  return <SignUpSec />;
 };
 
 export default SignUp;

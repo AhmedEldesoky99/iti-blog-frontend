@@ -1,14 +1,10 @@
 import { useMutation, useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router-dom";
+//custom
 import { Navbar } from "../../components/navbar/navbar";
 import { Spinner } from "../../components/shared/Spinner";
 import { PostHeader } from "../../container/Post/Post-header";
-import {
-  deletePostByID,
-  getPostByID,
-  addPost,
-  editPost,
-} from "../../services/posts";
+import { deletePostByID, getPostByID, editPost } from "../../services/posts";
 import { alertMsg } from "../../utils/alert";
 import { handleRes } from "../../utils/handle-res";
 
