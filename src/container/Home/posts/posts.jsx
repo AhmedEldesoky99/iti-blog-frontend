@@ -11,10 +11,12 @@ import { alertMsg } from "../../../utils/alert";
 import { addPost, getPosts } from "../../../services/posts";
 import { handleRes } from "../../../utils/handle-res";
 import Pagination from "../../../components/shared/Pagination";
+import { useNavigate } from "react-router-dom";
 
 const PAGE_SIZE = 6;
 
-export const Posts = () => {
+export const Posts = ({ user }) => {
+  const navigate = useNavigate();
   const [fetchPosts, setFetchPosts] = useState(true);
   //get posts
   const query = useQuery("posts", getPosts, {
@@ -74,7 +76,16 @@ export const Posts = () => {
 
       <h2 className="text-6xl py-10 text-center">Latest post</h2>
       <div className="py-10 flex justify-center">
-        <button className="btn btn-primary" onClick={() => toggleCreate(true)}>
+        <button
+          className="btn btn-primary"
+          onClick={() => {
+            if (!user?._id) {
+              alertMsg("please Sign in", false);
+            } else {
+              toggleCreate(true);
+            }
+          }}
+        >
           create post
         </button>
       </div>
@@ -94,12 +105,14 @@ export const Posts = () => {
         ))}
       </div>
       <div className="my-10 flex justify-center">
-        <Pagination
-          totalPages={numberOfPages}
-          currentPage={currPage}
-          next={() => setCurrPage(Math.min(currPage + 1, numberOfPages))}
-          perv={() => setCurrPage(Math.max(currPage - 1, 1))}
-        />
+        {itemsToRender?.length > 0 && (
+          <Pagination
+            totalPages={numberOfPages}
+            currentPage={currPage}
+            next={() => setCurrPage(Math.min(currPage + 1, numberOfPages))}
+            perv={() => setCurrPage(Math.max(currPage - 1, 1))}
+          />
+        )}
       </div>
     </div>
   );

@@ -5,7 +5,7 @@ const Pagination = ({ totalPages, next, perv, currentPage }) => {
         «
       </button>
       <button className="btn">
-        Page {currentPage} of {totalPages}
+        Page {currentPage} of {totalPages ?? 1}
       </button>
       <button className="btn" onClick={next}>
         »

@@ -32,20 +32,35 @@ export const Navbar = ({ user }) => {
                 <img src={user?.photo[0]?.url ?? User} />
               </div>
             </label>
-            <ul
-              tabIndex={0}
-              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
-            >
-              <li onClick={() => navigate("/user/" + user._id, user)}>
-                <a className="justify-between">Profile</a>
-              </li>
-              {/* <li>
+            {user?._id && (
+              <ul
+                tabIndex={0}
+                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li onClick={() => navigate("/user/" + user._id, user)}>
+                  <a className="justify-between">Profile</a>
+                </li>
+                {/* <li>
                 <a>Settings</a>
               </li> */}
-              <li onClick={logout}>
-                <a>Logout</a>
-              </li>
-            </ul>
+                <li onClick={logout}>
+                  <a>Logout</a>
+                </li>
+              </ul>
+            )}
+            {!user?._id && (
+              <ul
+                tabIndex={0}
+                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li onClick={() => navigate("/sign-in")}>
+                  <a className="justify-between">sign in</a>
+                </li>
+                <li onClick={() => navigate("/sign-up")}>
+                  <a className="justify-between">sign up</a>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </div>

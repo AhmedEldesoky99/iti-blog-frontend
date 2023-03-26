@@ -19,7 +19,7 @@ const Home = () => {
     <div>
       <Navbar user={user} />
       <Header username={username} />
-      <Posts />
+      <Posts user={user} />
       <Footer />
     </div>
   );

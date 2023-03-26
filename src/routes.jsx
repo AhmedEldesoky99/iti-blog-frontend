@@ -12,11 +12,7 @@ import { Protected } from "./components/shared/ProtectedRoutes/protected";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <Protected>
-        <Home />
-      </Protected>
-    ),
+    element: <Home />,
   },
   {
     path: "sign-in",
