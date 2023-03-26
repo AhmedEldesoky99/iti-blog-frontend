@@ -28,3 +28,10 @@ export const editPost = (id, data) => {
     .then((res) => res)
     .catch((err) => err);
 };
+
+export const getPosts = (limit) => {
+  return request({
+    url: `/v1/post`,
+    method: "GET",
+  });
+};

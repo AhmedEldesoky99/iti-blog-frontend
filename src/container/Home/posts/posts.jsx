@@ -1,27 +1,22 @@
-import { baseURL, request } from "../../../services/axios-utils";
 import { useMutation, useQuery } from "react-query";
 //cust
 import { Card } from "../../../components/shared/Card/card";
 import { Spinner } from "../../../components/shared/Spinner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal } from "../../../components/shared/Modal/modal";
 import { Form } from "../../../components/shared/Form-builder/form-builder";
 import { createPost, inputs } from "./constant";
 import ImageUploader from "../../../components/shared/Inputs/upload-imge";
 import { alertMsg } from "../../../utils/alert";
-import axios from "axios";
-import { addPost } from "../../../services/posts";
-// import { Pagination } from "../../../components/shared/pagination/pagination";
+import { addPost, getPosts } from "../../../services/posts";
+import { Pagination } from "../../../components/shared/pagination/pagination";
+import { handleRes } from "../../../utils/handle-res";
 
-const getPosts = (limit) => {
-  return request({
-    url: `/v1/post`,
-    method: "GET",
-  });
-};
+const PAGE_SIZE = 6;
 
 export const Posts = () => {
   const [fetchPosts, setFetchPosts] = useState(true);
+  //get posts
   const query = useQuery("posts", getPosts, {
     refetchOnMount: false,
     refetchInterval: 2000,
@@ -30,6 +25,7 @@ export const Posts = () => {
       setFetchPosts(false);
     },
   });
+  //create post
   const mutatePost = useMutation(addPost, {
     onSuccess: (res) => {
       if (res.data.success) {
@@ -40,10 +36,21 @@ export const Posts = () => {
     },
   });
 
-  const [create, toggleCreate] = useState(false);
-  const [file, setFile] = useState();
-  let cards = query?.data?.data?.data;
+  let cards = handleRes(query);
   cards = cards?.slice().reverse();
+
+  //pagination
+  const [currPage, setCurrPage] = useState(1);
+
+  const start = currPage * PAGE_SIZE - PAGE_SIZE;
+  const numberOfPages = Math.ceil(cards?.length / PAGE_SIZE);
+  let itemsToRender = cards?.slice(start, start + PAGE_SIZE);
+
+  //modal
+  const [create, toggleCreate] = useState(false);
+
+  //file
+  const [file, setFile] = useState();
 
   const handleSubmit = (data) => {
     if (!file) {
@@ -72,7 +79,7 @@ export const Posts = () => {
         </button>
       </div>
       <div className="flex gap-4 flex-wrap justify-between ">
-        {cards?.map((item) => (
+        {itemsToRender?.map((item) => (
           <div className="my-5 m-auto " key={item._id}>
             <Card
               link={"/post/" + item._id}
@@ -86,9 +93,14 @@ export const Posts = () => {
           </div>
         ))}
       </div>
-      {/* <div className="my-10 flex justify-center">
-        <Pagination totalPages={Math.ceil(cards?.length / cardsPerPage)} />
-      </div> */}
+      <div className="my-10 flex justify-center">
+        <Pagination
+          totalPages={numberOfPages}
+          currentPage={currPage}
+          next={() => setCurrPage(Math.min(currPage + 1, numberOfPages))}
+          perv={() => setCurrPage(Math.max(currPage - 1, 1))}
+        />
+      </div>
     </div>
   );
 };
