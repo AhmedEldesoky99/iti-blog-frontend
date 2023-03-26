@@ -9,8 +9,8 @@ import { createPost, inputs } from "./constant";
 import ImageUploader from "../../../components/shared/Inputs/upload-imge";
 import { alertMsg } from "../../../utils/alert";
 import { addPost, getPosts } from "../../../services/posts";
-import { Pagination } from "../../../components/shared/pagination/pagination";
 import { handleRes } from "../../../utils/handle-res";
+import { Pagination } from "../../../components/shared/pagination/pagination";
 
 const PAGE_SIZE = 6;
 
