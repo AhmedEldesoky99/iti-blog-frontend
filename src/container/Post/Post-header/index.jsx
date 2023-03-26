@@ -41,8 +41,8 @@ export const PostHeader = ({ post, loading, onDelete, onUpdate }) => {
           <h1 className="text-5xl font-bold">{post?.title}</h1>
           <p className="py-6">{post?.content}</p>
           <p className="capitalize">
-            <Link to={`/user/${loggedInQuery?._id}`}>
-              created by : {loggedInQuery?.username}
+            <Link to={`/user/${post?.user?._id}`}>
+              created by : {post?.user?.username}
             </Link>
           </p>
           <p className="py-6">
