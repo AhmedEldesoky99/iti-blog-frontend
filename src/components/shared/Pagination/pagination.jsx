@@ -1,4 +1,4 @@
-export const Pagination = ({ totalPages, next, perv, currentPage }) => {
+const Pagination = ({ totalPages, next, perv, currentPage }) => {
   return (
     <div className="btn-group">
       <button className="btn" onClick={perv}>
@@ -13,3 +13,5 @@ export const Pagination = ({ totalPages, next, perv, currentPage }) => {
     </div>
   );
 };
+
+export default Pagination;
