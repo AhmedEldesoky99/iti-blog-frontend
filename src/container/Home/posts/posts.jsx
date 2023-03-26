@@ -10,7 +10,7 @@ import ImageUploader from "../../../components/shared/Inputs/upload-imge";
 import { alertMsg } from "../../../utils/alert";
 import { addPost, getPosts } from "../../../services/posts";
 import { handleRes } from "../../../utils/handle-res";
-import Pagination from "../../../components/shared/pagination/pagination";
+import Pagination from "../../../components/shared/Pagination";
 
 const PAGE_SIZE = 6;
 
