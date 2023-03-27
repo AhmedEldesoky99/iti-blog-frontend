@@ -21,7 +21,7 @@ const ImageUploader = ({ urlImg, setFile }) => {
         <div className="w-60  rounded overflow-hidden">
           {showImg && <img src={img ? img : url} />}
           {!showImg && (
-            <div className="abs bg-slate-300 w-full h-full rounded ">
+            <div className="abs bg-slate-400 w-full h-full rounded ">
               <div className="abs">
                 <Icon name="img" />
               </div>

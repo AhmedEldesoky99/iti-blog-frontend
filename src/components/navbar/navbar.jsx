@@ -11,7 +11,7 @@ export const Navbar = ({ user }) => {
     localStorage.removeItem("jwt");
   };
   return (
-    <div className="navbar bg-primary">
+    <div className="navbar ">
       <div className="container">
         <a
           href="https://ahmed-eldesoky.vercel.app/"

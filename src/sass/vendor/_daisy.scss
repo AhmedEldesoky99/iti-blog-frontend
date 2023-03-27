@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 .navbar {
-  box-shadow: 1rem 1rem 3rem rgba($color: #000000, $alpha: 0.3);
+  // box-shadow: 1rem 1rem 3rem rgba($color: #000000, $alpha: 0.3);
+  position: absolute;
 }
 
 .cust-avatar {

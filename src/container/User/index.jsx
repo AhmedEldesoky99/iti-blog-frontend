@@ -35,8 +35,12 @@ const UserContainer = ({ user, isOwner, modalsToggler }) => {
               </button>
             </div>
           )}
-          <h2 className="text-2xl font-bold py-6 capitalize">
-            Username: {user?.username}
+          <h2 className="text-xl font-bold py-6 capitalize">
+            Username:
+            <span className=" font-normal py-6 capitalize">
+              {" "}
+              {user?.username}
+            </span>
           </h2>
           <h2 className="text-5xl font-bold">Bio</h2>
           <p className="py-6">

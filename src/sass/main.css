@@ -1,3 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.navbar {
+  position: absolute;
+}
+
+.cust-avatar {
+  position: absolute;
+  bottom: 0;
+  right: 1rem;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  color: rgba(238, 238, 238, 0.9333333333);
+}
+
 .abs {
   position: absolute;
   left: 50%;
@@ -13,31 +34,14 @@
   margin: 0 auto;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-.navbar {
-  box-shadow: 1rem 1rem 3rem rgba(0, 0, 0, 0.3);
-}
-
-.cust-avatar {
-  position: absolute;
-  bottom: 0;
-  right: 1rem;
-}
-
-.hero-overlay {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
 .modal__overlay {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 2000;
   background-color: rgba(0, 0, 0, 0.2);
-  -webkit-backdrop-filter: blur(0.2rem);
-          backdrop-filter: blur(0.2rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+          backdrop-filter: blur(0.5rem);
   width: 100vw;
   height: 100vh;
 }
@@ -49,7 +53,8 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  -webkit-backdrop-filter: blur(10rem);
+          backdrop-filter: blur(10rem);
   border-radius: 1rem;
   padding: 1rem;
 }
@@ -60,7 +65,7 @@
 }
 
 .header-img {
-  background-image: url("../assets/images/Background - Compressed.webp");
+  background-image: url("../assets/images/image.png");
 }
 
 .container {
@@ -72,6 +77,10 @@
   .img-uploader {
     flex-direction: column;
   }
+}
+
+.card {
+  box-shadow: 1rem 1rem 3rem rgba(119, 119, 119, 0.1);
 }
 
 .user__cover {
