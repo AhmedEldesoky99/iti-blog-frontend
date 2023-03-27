@@ -15,6 +15,10 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.hero {
+  background-image: url("../assets/images/Image.webp");
+}
+
 body {
   color: rgba(238, 238, 238, 0.9333333333);
 }
