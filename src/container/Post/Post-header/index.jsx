@@ -32,7 +32,7 @@ export const PostHeader = ({ post, loading, onDelete, onUpdate }) => {
   return (
     <div className="hero min-h-screen bg-base-200">
       <Spinner loading={loading} />
-      <div className="hero-content flex-col lg:flex-row-reverse justify-between w-2/3">
+      <div className="hero-content flex-col lg:flex-row-reverse justify-between w-5/6">
         <img
           src={post?.photo[0]?.url}
           className="max-w-sm rounded-lg shadow-2xl"

@@ -68,8 +68,9 @@ const User = () => {
   const auth = loggedInUser?._id === user?._id;
   return (
     <div>
-      <Spinner loading={userQuery.isLoading || updateUser.isLoading} />
       <Navbar user={user} />
+
+      <Spinner loading={userQuery.isLoading || updateUser.isLoading} />
 
       <UserContainer user={user} isOwner={auth} modalsToggler={modalsToggler} />
       {/* modal to change information */}

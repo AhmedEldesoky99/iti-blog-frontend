@@ -3,6 +3,7 @@
 @tailwind utilities;
 .navbar {
   position: absolute;
+  z-index: 1000;
 }
 
 .cust-avatar {
