@@ -62,21 +62,26 @@ export const Posts = ({ user }) => {
     }
   };
   return (
-    <div className="container py-10">
+    <div className="container relative py-10 ">
       <Spinner loading={query.isLoading || mutatePost.isLoading} />
-
       <Modal
         isOpen={create}
         toggleModal={() => toggleCreate(false)}
         title="Create Post"
       >
         <ImageUploader setFile={setFile} />
-        <Form inputs={inputs} schema={createPost} onSubmit={handleSubmit} />
+        <Form
+          inputs={inputs}
+          disabled={mutatePost.isLoading}
+          schema={createPost}
+          onSubmit={handleSubmit}
+        />
       </Modal>
 
       <h2 className="text-6xl py-10 text-center">Latest post</h2>
       <div className="py-10 flex justify-center">
         <button
+          disabled={mutatePost.isLoading}
           className="btn btn-primary"
           onClick={() => {
             if (!user?._id) {

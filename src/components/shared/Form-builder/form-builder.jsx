@@ -3,7 +3,14 @@ import { Input } from "../Inputs/inputs";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 
-export const Form = ({ data, inputs, schema, children, onSubmit }) => {
+export const Form = ({
+  data,
+  inputs,
+  schema,
+  children,
+  onSubmit,
+  disabled,
+}) => {
   const [values, setValues] = useState(data ?? {});
 
   const { register, handleSubmit, watch, formState } = useForm({
@@ -40,7 +47,12 @@ export const Form = ({ data, inputs, schema, children, onSubmit }) => {
       {inputs.map((input) => renderInputs(input, formState.errors))}
       {children}
       <div className="form-control mt-6">
-        <input className="btn btn-primary" value="submit" type="submit" />
+        <input
+          disabled={disabled}
+          className="btn btn-primary"
+          value="submit"
+          type="submit"
+        />
       </div>
     </form>
   );

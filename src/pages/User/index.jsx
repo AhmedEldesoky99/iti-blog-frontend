@@ -85,7 +85,11 @@ const User = () => {
         </h2>
         <ImageUploader urlImg={user?.cover_photo[0]?.url} setFile={setCover} />
         <div className="form-control mt-6">
-          <button className="btn " onClick={() => handleSubmit(cover_photo)}>
+          <button
+            disabled={updateUser.isLoading}
+            className="btn "
+            onClick={() => handleSubmit(cover_photo)}
+          >
             Update Cover
           </button>{" "}
         </div>
@@ -98,7 +102,11 @@ const User = () => {
         </h2>
         <ImageUploader urlImg={user?.photo[0]?.url} setFile={setPhoto} />
         <div className="form-control mt-6">
-          <button className="btn " onClick={() => handleSubmit(photo)}>
+          <button
+            disabled={updateUser.isLoading}
+            className="btn "
+            onClick={() => handleSubmit(photo)}
+          >
             Update Photo
           </button>{" "}
         </div>

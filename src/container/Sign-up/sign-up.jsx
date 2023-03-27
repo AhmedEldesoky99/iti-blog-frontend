@@ -12,7 +12,7 @@ export const SignUpSec = () => {
 
   const mutation = useMutation(signUp, {
     onSuccess: (res) => {
-      if (res.data.success) {
+      if (res?.data?.success) {
         navigate("/");
         alertMsg(
           res.data ? "welcome to our blog" : undefined,
@@ -20,8 +20,9 @@ export const SignUpSec = () => {
         );
         localStorage.setItem("userID", res.data.data.user._id);
         localStorage.setItem("jwt", res.data.data.access_token);
+      } else {
+        alertMsg(res?.response?.data?.message, res?.response?.data?.success);
       }
-      alertMsg(res.response?.data?.message, res.response?.data?.success);
     },
   });
 
