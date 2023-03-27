@@ -13,15 +13,11 @@ export const Navbar = ({ user }) => {
   return (
     <div className="navbar ">
       <div className="container">
-        <a
-          href="https://ahmed-eldesoky.vercel.app/"
-          target="_blank"
-          className="flex-1 "
-        >
+        <Link to="/" className="flex-1 ">
           <span className="btn btn-ghost normal-case text-xl text-cyan-50">
-            Ahmed Eldesoky
+            Home
           </span>
-        </a>
+        </Link>
         <div className="flex gap-2">
           {/* <div className="form-control">
             <DarkMode />

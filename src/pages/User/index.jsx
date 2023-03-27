@@ -12,6 +12,7 @@ import { inputs, userSchema } from "../../container/User/constant";
 import { Modal } from "../../components/shared/Modal/modal";
 import { useState } from "react";
 import ImageUploader from "../../components/shared/Inputs/upload-imge";
+import { Navbar } from "../../components/navbar/navbar";
 const User = () => {
   const { id: userID } = useParams();
   const [photo, setPhoto] = useState();
@@ -68,6 +69,8 @@ const User = () => {
   return (
     <div>
       <Spinner loading={userQuery.isLoading || updateUser.isLoading} />
+      <Navbar user={user} />
+
       <UserContainer user={user} isOwner={auth} modalsToggler={modalsToggler} />
       {/* modal to change information */}
       <Modal isOpen={modals.data} toggleModal={() => modalsToggler("data")}>

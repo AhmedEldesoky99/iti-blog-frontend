@@ -9,13 +9,11 @@ module.exports = {
 
   daisyui: {
     styled: true,
-    themes: true,
     base: true,
     utils: true,
     logs: true,
     rtl: false,
     prefix: "",
-    theme: "night",
-    darkTheme: "night",
+    themes: ["night", "night", "night"],
   },
 };
