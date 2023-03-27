@@ -4,11 +4,11 @@ import { Avatar } from "../../components/shared/Avatar";
 const UserContainer = ({ user, isOwner, modalsToggler }) => {
   return (
     <div>
-      <div className="cover absolute">
+      <div className="absolute user__cover-box">
         <img
           src={user?.cover_photo[0]?.url ?? Pic}
           alt="cover"
-          className=" user__cover object-cover"
+          className="user__cover"
         />
       </div>
       <div className="container p-10">

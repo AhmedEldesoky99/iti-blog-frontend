@@ -15,10 +15,6 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.hero {
-  background-image: url("../assets/images/Image.webp");
-}
-
 body {
   color: rgba(238, 238, 238, 0.9333333333);
 }
@@ -87,9 +83,15 @@ body {
   box-shadow: 1rem 1rem 3rem rgba(119, 119, 119, 0.1);
 }
 
-.user__cover {
-  height: 30vh;
+.user__cover-box {
   width: 100vw;
+  height: 40vh;
+}
+.user__cover {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 @media (max-width: 991px) {
   .user__photo {
