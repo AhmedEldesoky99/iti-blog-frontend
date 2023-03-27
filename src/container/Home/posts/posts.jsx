@@ -89,7 +89,7 @@ export const Posts = ({ user }) => {
           create post
         </button>
       </div>
-      <div className="flex gap-4 flex-wrap justify-between ">
+      <div className="posts flex gap-4 flex-wrap justify-between ">
         {itemsToRender?.map((item) => (
           <div className="my-5 m-auto " key={item._id}>
             <Card
