@@ -104,7 +104,7 @@ const DeleteModal = ({ isOpen, toggleModal, item, submit }) => {
         <button className="btn btn-error" onClick={submit}>
           Delete
         </button>
-        <button className="btn btn-primary" onClick={() => toggleModal}>
+        <button className="btn btn-primary" onClick={toggleModal}>
           Cancel
         </button>
       </div>
