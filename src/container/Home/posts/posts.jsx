@@ -100,7 +100,7 @@ export const Posts = ({ user }) => {
             <Card
               link={"/post/" + item._id}
               title={item.title}
-              content={item.content.slice(0, 110) + "..."}
+              content={item.content}
               imagePost={item.photo[0]?.url}
               imageUser={item.user?.photo[0]?.url}
               date={item?.updatedAt}
